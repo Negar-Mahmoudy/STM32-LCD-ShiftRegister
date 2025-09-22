@@ -38,4 +38,4 @@ A modified version of the **LCD16x2 library** is included:
 
 
 ![LCD Setup](https://github.com/Negar-Mahmoudy/STM32-LCD-ShiftRegister/blob/main/images/1.PNG?raw=true)
-![74HC595](images/lcd_setup.png "LCD16x2 Wiring Diagram")
+![74HC595](https://github.com/Negar-Mahmoudy/STM32-LCD-ShiftRegister/blob/main/images/2.png?raw=true)
