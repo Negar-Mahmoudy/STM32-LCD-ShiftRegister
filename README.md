@@ -37,5 +37,5 @@ A modified version of the **LCD16x2 library** is included:
 - Demonstrates practical usage of **SPI peripheral** in STM32 for driving external components.
 
 
-![LCD Setup](images/lcd_setup.png "LCD16x2 Wiring Diagram")
+![LCD Setup](https://github.com/Negar-Mahmoudy/STM32-LCD-ShiftRegister/blob/main/images/1.PNG?raw=true)
 ![74HC595](images/lcd_setup.png "LCD16x2 Wiring Diagram")
