@@ -7,34 +7,23 @@ The goal is to compare a traditional direct GPIO connection with an optimized me
 ---
 
 ## Version 1: Direct GPIO Connection
-- The LCD16x2 is directly connected to the STM32 using **6 GPIO pins**.  
-- All data and control lines are handled through standard `HAL_GPIO_WritePin` functions.  
-- This method is simple and easy to understand but consumes multiple I/O pins, which can limit scalability in more complex designs.
+The LCD16x2 is directly connected to the STM32 using **6 GPIO pins**, and all data and control lines are handled by standard `HAL_GPIO_WritePin` functions. This method is simple and easy to understand but consumes many I/O pins.
 
 ---
 
 ## Version 2: Shift Register with SPI (74HC595)
-- The LCD16x2 is driven through a **74HC595 shift register**, reducing the required pins to only **3 connections**:
-  - **Clock**
-  - **Latch**
-  - **MOSI (Master Out Slave In)**  
-- Data is sent via **`HAL_SPI_Transmit`**, and the latch pin is toggled with a dedicated `LATCH` function to update the LCD.  
-- This approach frees up valuable GPIOs, making it more efficient for applications where pin availability is limited.
+The LCD16x2 is driven through a **74HC595 shift register**, which reduces the required pins to only 3(Clock, Latch, MOSI). Data is sent with SPI, and the latch pin is toggled with a LATCH function to update the LCD. This method uses less GPIO pins.
 
 ---
 
 ## Library
-A modified version of the **LCD16x2 library** is included:
-- In Version 1: standard GPIO functions (`HAL_GPIO_WritePin`) are used.  
-- In Version 2: all GPIO writes are replaced with SPI communication (`HAL_SPI_Transmit`) plus latch control.  
-- The library abstracts low-level implementation, so the user can work with simple LCD functions (e.g., writing text) without worrying about the communication details.
+A modified version of the **LCD16x2 library** in Version2 is included and all GPIO writes are replaced with SPI communication (`HAL_SPI_Transmit`) plus latch control.  
+The library abstracts the low-level implementation, allowing to write or read text very easily on a LCD.
 
 ---
 
-## Key Advantages of Version 2
-- Significant reduction in the number of GPIO pins required.  
-- Cleaner hardware design with fewer connections.  
-- Demonstrates practical usage of **SPI peripheral** in STM32 for driving external components.
+## Advantages of Version 2
+Much less amount of GPIOs and less connections are needed. additionally it practically uses SPI peripheral for driving external devices.
 
 
 ![LCD Setup](https://github.com/Negar-Mahmoudy/STM32-LCD-ShiftRegister/blob/main/images/1.PNG?raw=true)
